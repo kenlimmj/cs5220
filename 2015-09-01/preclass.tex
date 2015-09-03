@@ -46,10 +46,10 @@
       \end{figure*}
     \item A caveat: when attempting to run \verb|centroid.c| verbatim from the course repo on the cluster, one found that it was consistently giving a timing of 0 for all three functions. The initial hypothesis was that the resolution of the default C timer was insufficient. Following up on Piazza, \verb|centroid.c| was modified to use the OpenMP timer, giving the following results:
     \begin{enumerate}[label=(\alph*)]
-      \item 4.440892e-16 to 1.443290e-15
-      \item 4.440892e-16 to 1.443290e-15
-      \item 1.332268e-15 to 1.443290e-15
+      \item 1.266918e-03
+      \item 2.384777e-03
+      \item 2.351441e-03
     \end{enumerate}
-    also known as the unfortunate case where the numbers do not really make sense. Theoretically, Implementation B should be the slowest because it does not exploit memory locality or look-ahead, wheres Implementations A and C should be faster because the compiler can optimize for array access from contiguous blocks of memory.
+    Implementation B should be the slowest because it does not exploit memory locality or look-ahead, wheres Implementations A and C are faster because the compiler can optimize for array access from contiguous blocks of memory. Implementation A is understandably the fastest because it only has to go through the array once.
   \end{enumerate}
 \end{document}
